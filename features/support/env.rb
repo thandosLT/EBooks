@@ -1,28 +1,32 @@
 require 'appium_lib'
 
 desired_caps = {
-#  caps: {    
+#  caps: {               
 #      udid: 'emulator-5554',
 #      automationName: 'UiAutomator1',
-#      appPackage: 'com.bareum_sw.autoredial',
-#      appActivity: '.common.LogoActivity',
+#      appPackage: 'com.experitest.ExperiBank',
+#      appActivity: '.LoginActivity',
 #      platformName: 'android',
-      #skipDeviceInitialization: true,
-#      skipServerInstallation: true,
-#      newCommandTimeout: '3600',
-#      autoGrantPermissions: true
+      #kipDeviceInitialization: true,
+      #skipServerInstallation: true,
+#      newCommandTimeout: 3600,
+#      autoGrantPermissions: true,
+#      noSign: false
 #     },
 #      appium_lib: {
 #          server_url: 'http://localhost:4723/wd/hub'
 #      } 
-  caps: {
+  caps: {  
       reportDirectory: 'reports',
       reportFormat: 'xml',
       testName: 'Untitled',
       udid: 'MQK9K20A31910299',
-      appPackage: 'com.bareum_sw.autoredial',
-      appActivity: '.common.LogoActivity',
-      platformName: 'android'
+      automationName: 'UiAutomator1',
+      appPackage: 'org.nypl.simplified.simplye',
+      appActivity: 'org.nypl.simplified.main.MainActivity',
+      platformName: 'android',
+      autoGrantPermissions: true,
+      noSign: false
       },
       appium_lib: {
           server_url: 'http://localhost:4723/wd/hub'

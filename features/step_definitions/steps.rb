@@ -3,13 +3,13 @@ require_relative '../pages/homePage.rb'
 home = HomePage.new
 
 Given('user is on the home page') do
-  home.HomeTest()
+  home.verifyHomePage()
 end
 
-And('user clicks the login button') do
-  
+And('user clicks e books') do
+  home.clickEbook()
 end
 
-Then('login must appear') do
-  
+Then('verify ebook') do
+  home.verifyEbook()
 end
