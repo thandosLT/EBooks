@@ -8,34 +8,56 @@ class HomePage
    @PassWordId = "com.experitest.ExperiBank:id/passwordTextField"
    @loginButton = "com.experitest.ExperiBank:id/loginButton"
    @verifyError = "com.experitest.ExperiBank:id/loginButton"
-   
-   
+     
    
    def verifyHomePage
      
      aFind = FindElements.new
      aClick = ClickElements.new
-          
-     aFind.tempfindXpath("//*[@text='Catalog' and ./parent::*[@id='mainToolbar']]")
-     aClick.tempclickXpath("//*[@text='Catalog' and ./parent::*[@id='mainToolbar']]")
-    
+	
+	 #bug work around, click catalog
+	 aClick.clickXpath("//android.widget.FrameLayout[@content-desc='Catalog']/android.widget.ImageView")     
+
+	 sleep 10
+	 
+	 aFind.findId("org.nypl.labs.OpenEbooks.app:id/authBasicUserField")     
+   
    end
    
-   def clickEbook
+   def sendAccount
+     
      aFind = FindElements.new
-     aClick = ClickElements.new
-       
-     aClick.tempclickXpath("//*[@contentDescription='More options']")
-     $driver.execute_script("seetest:client.waitForElement(\"NATIVE\", \"xpath=//*[@text='eBooks']\", 0, 30000)")   
-        
+     
+	 aFind.findIdSend("org.nypl.labs.OpenEbooks.app:id/authBasicUserField","H6V3NHHK64")     
+
    end
+   
+   def sendPin
+     
+     aFind = FindElements.new
+     
+	 aFind.findIdSend("org.nypl.labs.OpenEbooks.app:id/authBasicPassField","6336")     
+
+   end
+   
+   def ClickLogin
+     
+     aClick = ClickElements.new
+     
+	 aClick.clickId("org.nypl.labs.OpenEbooks.app:id/authBasicLogin")     
+
+   end
+   
    
    def verifyEbook
      
      aFind = FindElements.new
-     
-     aFind.tempfindXPath("//*[@text='eBooks']")
-     
+	 aClick = ClickElements.new
+	
+	 sleep 15
+	 aClick.clickXpath("//android.widget.FrameLayout[@content-desc='Catalog']/android.widget.ImageView")
+	 
+	 sleep 10     
    end
    
 end
