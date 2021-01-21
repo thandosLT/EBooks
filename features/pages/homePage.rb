@@ -3,61 +3,57 @@ require_relative '../actions/Find.rb'
 require_relative '../actions/Type.rb'
 
 class HomePage
-   @eribankImageClass = "android.widget.ImageView"
-   @userNameId = "com.experitest.ExperiBank:id/usernameTextField"
-   @PassWordId = "com.experitest.ExperiBank:id/passwordTextField"
-   @loginButton = "com.experitest.ExperiBank:id/loginButton"
-   @verifyError = "com.experitest.ExperiBank:id/loginButton"
-     
+
+  #Local Variables
+   @@userIdField = "org.nypl.labs.OpenEbooks.app:id/authBasicUserField"
+   @@PassWordId = "org.nypl.labs.OpenEbooks.app:id/authBasicPassField"
+   @@logWithClever = "org.nypl.labs.OpenEbooks.app:id/authOAuthIntermediaryLogoImage"
+    
+   #instances of classes
+   @@aFind = FindElements.new
+   @@aClick = ClickElements.new
+   @@aType = TypeTextClass.new
    
    def verifyHomePage
-     
-     aFind = FindElements.new
-     aClick = ClickElements.new
-	
-	 #bug work around, click catalog
-	 aClick.clickXpath("//android.widget.FrameLayout[@content-desc='Catalog']/android.widget.ImageView")     
-
-	 sleep 10
-	 
-	 aFind.findId("org.nypl.labs.OpenEbooks.app:id/authBasicUserField")     
+     sleep 10
+     @@aClick.clickXpath("//android.widget.FrameLayout[@content-desc='Catalog']/android.widget.ImageView")     
+	   sleep 10
+	   @@aFind.findId(@@userIdField)     
    
    end
    
-   def sendAccount
+   def sendUser(userid)
      
-     aFind = FindElements.new
-     
-	 aFind.findIdSend("org.nypl.labs.OpenEbooks.app:id/authBasicUserField","H6V3NHHK64")     
+     @userId = userid
+     @@aType.sendTypeId(@@userIdField, @userId)     
 
    end
    
-   def sendPin
-     
-     aFind = FindElements.new
-     
-	 aFind.findIdSend("org.nypl.labs.OpenEbooks.app:id/authBasicPassField","6336")     
+   def sendPin(pword)
+          
+     @pword = pword
+     @@aType.sendTypeId(@@PassWordId,@pword)     
 
    end
    
    def ClickLogin
      
-     aClick = ClickElements.new
-     
-	 aClick.clickId("org.nypl.labs.OpenEbooks.app:id/authBasicLogin")     
+     @@aClick.clickId("org.nypl.labs.OpenEbooks.app:id/authBasicLogin")     
 
    end
-   
-   
+      
    def verifyEbook
      
-     aFind = FindElements.new
-	 aClick = ClickElements.new
-	
-	 sleep 15
-	 aClick.clickXpath("//android.widget.FrameLayout[@content-desc='Catalog']/android.widget.ImageView")
-	 
-	 sleep 10     
+     sleep 15
+	   @@aClick.clickXpath("//android.widget.FrameLayout[@content-desc='Catalog']/android.widget.ImageView")
+    
+   end
+   
+  def clickLogClever
+       
+     sleep 15
+     @@aClick.clickId(@@logWithClever)
+      
    end
    
 end

@@ -36,9 +36,7 @@ desired_caps = {
 }
 
 $driver = Appium::Driver.new(desired_caps, false)
-$driver.start_driver
 
-After do
-  $driver.driver_quit
-end
+
+
 

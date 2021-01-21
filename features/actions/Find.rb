@@ -17,11 +17,5 @@ class FindElements
 		sleep 5
         $driver.find_element(:id, @element)
   end
-  
-  def findIdSend(element, send)
-        @element = element
-		@send = send
-		sleep 5
-        $driver.find_element(:id, @element).send_keys(@send)
-  end
+    
 end
