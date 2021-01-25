@@ -15,45 +15,29 @@ class HomePage
    @@aType = TypeTextClass.new
    
    def verifyHomePage
-     sleep 10
      @@aClick.clickXpath("//android.widget.FrameLayout[@content-desc='Catalog']/android.widget.ImageView")     
-	   sleep 10
 	   @@aFind.findId(@@userIdField)     
-   
    end
    
    def sendUser(userid)
-     
      @userId = userid
      @@aType.sendTypeId(@@userIdField, @userId)     
-
    end
    
    def sendPin(pword)
-          
      @pword = pword
      @@aType.sendTypeId(@@PassWordId,@pword)     
-
    end
    
    def ClickLogin
-     
      @@aClick.clickId("org.nypl.labs.OpenEbooks.app:id/authBasicLogin")     
-
    end
       
    def verifyEbook
-     
-     sleep 15
 	   @@aClick.clickXpath("//android.widget.FrameLayout[@content-desc='Catalog']/android.widget.ImageView")
-    
    end
    
   def clickLogClever
-       
-     sleep 15
      @@aClick.clickId(@@logWithClever)
-      
    end
-   
 end

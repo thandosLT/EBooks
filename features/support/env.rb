@@ -1,4 +1,5 @@
 require 'appium_lib'
+require 'selenium-webdriver'
 
 desired_caps = {
   caps: {               
@@ -36,7 +37,3 @@ desired_caps = {
 }
 
 $driver = Appium::Driver.new(desired_caps, false)
-
-
-
-
